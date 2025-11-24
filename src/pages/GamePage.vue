@@ -9,68 +9,56 @@ const correctOrder = computed(() => [...eventsData].sort((a, b) => b.year - a.ye
 const guessesRemaining = ref(4)
 const rightDrawerOpen = ref(false)
 
-let firstSelectedEvent = null
-let firstSelectedIndex = null
+// Track state reactively
+const selectedIndex = ref(null)
+const correctIndices = ref(new Set())
+const fadingOutIndex = ref(null)
 
 function toggleRightDrawer() {
   rightDrawerOpen.value = !rightDrawerOpen.value
 }
+
 function swapEvent(event, index) {
   if (guessesRemaining.value === 0) return // Prevent swapping after guesses are used up
-  if (firstSelectedEvent === event) {
+  if (correctIndices.value.has(index)) return // Can't swap correct cards
+
+  if (selectedIndex.value === index) {
     // Deselect if the same event is clicked again
-    const selected = document.querySelectorAll('.game-card')[index]
-    fadeOut(selected)
-    firstSelectedEvent = null
-    firstSelectedIndex = null
+    fadingOutIndex.value = index
+    setTimeout(() => {
+      selectedIndex.value = null
+      fadingOutIndex.value = null
+    }, 500)
     return
   }
-  if (!firstSelectedEvent) {
-    if (document.querySelectorAll('.game-card')[index].classList.contains('correct')) return
-    firstSelectedEvent = event
-    const selected = document.querySelectorAll('.game-card')[index]
-    selected.classList.add('selected')
-    firstSelectedIndex = index
-  } else {
-    if (document.querySelectorAll('.game-card')[index].classList.contains('correct')) return
-    // insert first event into second event's position and push array items accordingly
-    const secondIndex = events.value.indexOf(event)
-    if (firstSelectedIndex !== -1 && secondIndex !== -1) {
-      events.value.splice(secondIndex, 0, events.value.splice(firstSelectedIndex, 1)[0])
-    }
-    const selected = document.querySelectorAll('.game-card')[firstSelectedIndex]
-    fadeOut(selected)
-    firstSelectedEvent = null
-    firstSelectedIndex = null
-  }
-}
 
-function fadeOut(selected) {
-  selected.classList.add('fade-out')
-  setTimeout(() => {
-    selected.classList.remove('fade-out')
-    selected.classList.remove('selected')
-  }, 500)
+  if (selectedIndex.value === null) {
+    // Select first event
+    selectedIndex.value = index
+  } else {
+    // Swap and deselect
+    const firstIdx = selectedIndex.value
+    const secondIdx = index
+    events.value.splice(secondIdx, 0, events.value.splice(firstIdx, 1)[0])
+
+    fadingOutIndex.value = firstIdx
+    setTimeout(() => {
+      selectedIndex.value = null
+      fadingOutIndex.value = null
+    }, 500)
+  }
 }
 
 function checkAnswers() {
-  // Check which events are in the correct position
+  // Mark all correct positions
   for (let i = 0; i < events.value.length; i++) {
     if (events.value[i].year === correctOrder.value[i].year) {
-      const buttons = document.querySelectorAll('.game-card')
-      buttons[i].classList.add('correct')
+      correctIndices.value.add(i)
     }
   }
+
   if (guessesRemaining.value > 0) {
     guessesRemaining.value--
-  } else {
-    // No guesses left, reveal all correct answers
-    const buttons = document.querySelectorAll('.game-card')
-    for (let i = 0; i < events.value.length; i++) {
-      if (events.value[i].year === correctOrder.value[i].year) {
-        buttons[i].classList.add('correct')
-      }
-    }
   }
 }
 </script>
@@ -90,9 +78,12 @@ function checkAnswers() {
 
         </div>
         <div class="flex column items-center game-container q-gutter-y-sm">
-          <q-btn v-for="(event, index) in events" :key="event.year"
-            :class="$q.dark.isActive ? 'dark game-card' : 'light game-card'" @click="swapEvent(event, index)"
-            :label="event.title" />
+          <q-btn v-for="(event, index) in events" :key="event.year" :class="[
+            $q.dark.isActive ? 'dark game-card' : 'light game-card',
+            { selected: selectedIndex === index },
+            { 'fade-out': fadingOutIndex === index },
+            { correct: correctIndices.has(index) }
+          ]" @click="swapEvent(event, index)" :label="event.title" />
           <small>Past</small>
           <div class="flex row button-row full-width justify-between q-mt-md">
             <div class="flex row items-center q-gutter-x-sm">
