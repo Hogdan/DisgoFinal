@@ -1,13 +1,17 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, inject } from 'vue'
 import eventsData from './events.js'
 import CommentSection from 'src/components/CommentSection.vue'
+import GameResults from 'src/components/GameResults.vue'
 
+const profile = inject('profile')
 const today = ref(new Date())
 const events = ref([...eventsData].sort((a, b) => b.year - a.year))
 const correctOrder = computed(() => [...eventsData].sort((a, b) => b.year - a.year))
-const guessesRemaining = ref(4)
+const guessesRemaining = ref(5)
 const rightDrawerOpen = ref(false)
+const resultsDialogOpen = ref(false)
+const gameOver = ref(false)
 
 // Track state reactively
 const selectedIndex = ref(null)
@@ -18,7 +22,11 @@ function toggleRightDrawer() {
   rightDrawerOpen.value = !rightDrawerOpen.value
 }
 
-function swapEvent(event, index) {
+function openResultsDialog() {
+  resultsDialogOpen.value = true
+}
+
+function swapEvent(index) {
   if (guessesRemaining.value === 0) return // Prevent swapping after guesses are used up
   if (correctIndices.value.has(index)) return // Can't swap correct cards
 
@@ -56,20 +64,44 @@ function checkAnswers() {
       correctIndices.value.add(i)
     }
   }
-
+  checkForWin()
+  // Decrease guesses remaining
   if (guessesRemaining.value > 0) {
     guessesRemaining.value--
+  } else {
+    // No guesses left, open results dialog
+    profile.value.gameOver(-1)
+    gameOver.value = true
+    openResultsDialog()
   }
 }
+
+function checkForWin() {
+  if (correctIndices.value.size === events.value.length) {
+    // Player has won
+    const success = profile.value.gameOver(guessesRemaining.value)
+    gameOver.value = true
+    if (success) {
+      openResultsDialog()
+    }
+  }
+}
+
 </script>
 
 <template>
-  <q-drawer v-model="rightDrawerOpen" side="right" overlay bordered :width="300"
-    :class="$q.dark.isActive ? 'dark box-shadow' : 'light box-shadow'">
-    <CommentSection />
-  </q-drawer>
+
   <transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
     <q-page class="flex column items-center q-px-sm">
+      <q-drawer v-model="rightDrawerOpen" side="right" overlay bordered :width="300"
+        :class="$q.dark.isActive ? 'dark box-shadow' : 'light box-shadow'">
+        <CommentSection />
+      </q-drawer>
+
+      <q-dialog v-model="resultsDialogOpen" persistent :maximized="$q.screen.width < 580" transition-show="slide-down"
+        transition-hide="slide-down">
+        <GameResults />
+      </q-dialog>
       <div class="page-title q-my-md"><span>Daily Puzzle</span><small>{{ today.toDateString() }}</small></div>
       <div class='content'>
         <div class="row items-center">
@@ -83,7 +115,7 @@ function checkAnswers() {
             { selected: selectedIndex === index },
             { 'fade-out': fadingOutIndex === index },
             { correct: correctIndices.has(index) }
-          ]" @click="swapEvent(event, index)" :label="event.title" />
+          ]" @click="swapEvent(index)" :label="event.title" />
           <small>Past</small>
           <div class="flex row button-row full-width justify-between q-mt-md">
             <div class="flex row items-center q-gutter-x-sm">
@@ -93,7 +125,8 @@ function checkAnswers() {
               </span>
             </div>
             <div class="flex row items-center q-ml-sm">
-              <q-btn rounded glossy color="positive" label="Check Answers" @click="checkAnswers" />
+              <q-btn v-if="!gameOver" rounded glossy color="positive" label="Check Answers" @click="checkAnswers" />
+              <q-btn v-else rounded glossy color="accent" label="See Results" to="/results" />
             </div>
           </div>
         </div>
@@ -139,6 +172,7 @@ function checkAnswers() {
       justify-content: center;
       flex-direction: row;
       gap: 1rem 0;
+      margin-bottom: 1rem;
     }
   }
 

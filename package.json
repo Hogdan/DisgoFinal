@@ -1,7 +1,7 @@
 {
   "name": "disgofinal",
   "version": "0.0.1",
-  "description": "Daily match game to test your knowledge of history",
+  "description": "Daily game to test your knowledge of history",
   "productName": "disgoquasar",
   "author": "Daniel Hogan <djhogan87@gmail.com>",
   "type": "module",

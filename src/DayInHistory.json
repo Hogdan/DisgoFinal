@@ -7,14 +7,14 @@
       "updated_at": "2025-05-30T18:26:21.091928Z",
       "year": "1963",
       "title": "U.S. President John F. Kennedy assassinated",
-      "description": "The most notorious political murder in recent American history occurred this day in 1963, whenJohn F. Kennedy, the 35thU.S. president(1961–63), wasshot and killedin Dallas, Texas, while riding in an open car"
+      "description": "The most notorious political murder in recent American history occurred this day in 1963, when John F. Kennedy, the 35th U.S. president(1961–63), was shot and killed in Dallas, Texas, while riding in an open car"
     },
     {
       "created_at": "2025-05-30T18:26:21.069779Z",
       "updated_at": "2025-05-30T18:26:21.091928Z",
       "year": "2005",
       "title": "Angela Merkel becomes first female German Chancellor",
-      "description": "German politicianAngela Merkelwas sworn in as the country's chancellor, becoming the first woman to hold the post"
+      "description": "German politician Angela Merkel was sworn in as the country's chancellor, becoming the first woman to hold the post"
     },
     {
       "created_at": "2025-05-30T18:26:21.069779Z",
@@ -28,28 +28,28 @@
       "updated_at": "2025-05-30T18:26:21.091928Z",
       "year": "1994",
       "title": "Mount Merapi eruption on Java island kills 64",
-      "description": "Mount Merapi, on the island ofJava, erupted, killing 64 people"
+      "description": "Mount Merapi, on the island of Java, erupted, killing 64 people"
     },
     {
       "created_at": "2025-05-30T18:26:21.069779Z",
       "updated_at": "2025-05-30T18:26:21.091928Z",
       "year": "1990",
       "title": "Margaret Thatcher resigns as British Prime Minister",
-      "description": "Margaret Thatcherannounced her resignation as British prime minister after a split occurred in the ranks of theConservative Party"
+      "description": "Margaret Thatcher announced her resignation as British prime minister after a split occurred in the ranks of the Conservative Party"
     },
     {
       "created_at": "2025-05-30T18:26:21.069779Z",
       "updated_at": "2025-05-30T18:26:21.091928Z",
       "year": "1986",
       "title": "Mike Tyson Becomes Youngest Heavyweight Champion",
-      "description": "With a second-round knockout of Trevor Berbick, 20-year-oldMike Tysonbecame the youngest heavyweight champion inboxinghistory.How much do you know about boxing?Gary Hershorn—Reuters/"
+      "description": "With a second-round knockout of Trevor Berbick, 20-year-old Mike Tyson became the youngest heavyweight champion in boxing history."
     },
     {
       "created_at": "2025-05-30T18:26:21.069779Z",
       "updated_at": "2025-05-30T18:26:21.091928Z",
       "year": "1975",
       "title": "Juan Carlos Becomes King of Spain After Franco's Death",
-      "description": "Juan Carlosbecame king ofSpain, two days after the death ofFrancisco Franco"
+      "description": "Juan Carlos became king of Spain, two days after the death of Francisco Franco"
     },
     {
       "created_at": "2025-05-30T18:26:21.069779Z",
@@ -63,7 +63,7 @@
       "updated_at": "2025-05-30T18:26:21.091928Z",
       "year": "1819",
       "title": "Birth of Victorian Novelist George Eliot",
-      "description": "Victorian English novelistGeorge Eliot—who developed the method of psychological analysis characteristic of modern fiction and was known for such works asMiddlemarch(1871–72)—was born.Learn about nine obscure literary terms"
+      "description": "Victorian English novelist George Eliot, who developed the method of psychological analysis characteristic of modern fiction and was known for such works as Middlemarch (1871–72)—was born."
     },
     {
       "created_at": "2025-05-30T18:26:21.069779Z",
@@ -71,108 +71,6 @@
       "year": "1718",
       "title": "Blackbeard the Pirate Killed Off North Carolina Coast in 1718",
       "description": "The infamous pirate Blackbeard, whose real name was Edward Teach, was killed in a battle off the coast of North Carolina in 1718. He was a notorious figure who terrorized the Atlantic coast, but was ultimately defeated by British naval forces."
-    }
-  ],
-  "biographies": [
-    {
-      "created_at": "2025-05-30T18:26:20.783265Z",
-      "updated_at": "2025-05-30T18:26:20.943339Z",
-      "type": "birth",
-      "name": "Abby Morton Diaz",
-      "description": "American author",
-      "bio": "Abby Morton Diaz was an American novelist and writer of children’s literature whose popular and gently humorous work reflected her belief in children’s innate goodness.",
-      "birth_year": "1821",
-      "death_year": "1904"
-    },
-    {
-      "created_at": "2025-05-30T18:26:20.783265Z",
-      "updated_at": "2025-05-30T18:26:20.943339Z",
-      "type": "birth",
-      "name": "Abigail Adams",
-      "description": "American first lady",
-      "bio": "Abigail Adams was an American first lady (1797–1801), the wife of John Adams, second president of the United States, and mother of John Quincy Adams, sixth president of the United States.",
-      "birth_year": "1744",
-      "death_year": "1818"
-    },
-    {
-      "created_at": "2025-05-30T18:26:20.783265Z",
-      "updated_at": "2025-05-30T18:26:20.943339Z",
-      "type": "death",
-      "name": "Ahmed I",
-      "description": "Ottoman sultan",
-      "bio": "Ahmed I was an Ottoman sultan from 1603 to 1617, whose authority was weakened by wars, rebellions, and misrule.",
-      "birth_year": "1590",
-      "death_year": "1617"
-    },
-    {
-      "created_at": "2025-05-30T18:26:20.783265Z",
-      "updated_at": "2025-05-30T18:26:20.943339Z",
-      "type": "death",
-      "name": "Aldous Huxley",
-      "description": "British author",
-      "bio": "Aldous Huxley was an English novelist and critic gifted with an acute and far-ranging intelligence whose works are notable for their wit and pessimistic satire.",
-      "birth_year": "1894",
-      "death_year": "1963"
-    },
-    {
-      "created_at": "2025-05-30T18:26:20.783265Z",
-      "updated_at": "2025-05-30T18:26:20.943339Z",
-      "type": "death",
-      "name": "Aleksandr Onufriyevich Kovalevsky",
-      "description": "Russian embryologist",
-      "bio": "Aleksandr Onufriyevich Kovalevsky was a Russian founder of comparative embryology and experimental histology, who established for the first time the existence of a common pattern in the embryological development.",
-      "birth_year": "1840",
-      "death_year": "1901"
-    },
-    {
-      "created_at": "2025-05-30T18:26:20.783265Z",
-      "updated_at": "2025-05-30T18:26:20.943339Z",
-      "type": "death",
-      "name": "Alicia Cockburn",
-      "description": "Scottish author",
-      "bio": "Alicia Cockburn was a Scottish author who wrote the original version of the popular ballad “Flowers of the Forest.",
-      "birth_year": "1713",
-      "death_year": "1794"
-    },
-    {
-      "created_at": "2025-05-30T18:26:20.783265Z",
-      "updated_at": "2025-05-30T18:26:20.943339Z",
-      "type": "birth",
-      "name": "Andreas Hofer",
-      "description": "Tirolean leader",
-      "bio": "Andreas Hofer was a Tirolese patriot, military leader, and popular hero who fought Napoleonic France and Bavaria for two years (1809–10) in an attempt to keep his homeland under Austrian rule.",
-      "birth_year": "1767",
-      "death_year": "1810"
-    },
-    {
-      "created_at": "2025-05-30T18:26:20.783265Z",
-      "updated_at": "2025-05-30T18:26:20.943339Z",
-      "type": "death",
-      "name": "Andreina Pagnani",
-      "description": "Italian actress",
-      "bio": "Andreina Pagnani was an Italian dramatic actress who worked primarily in the theatre.",
-      "birth_year": "1906",
-      "death_year": "1981"
-    },
-    {
-      "created_at": "2025-05-30T18:26:20.783265Z",
-      "updated_at": "2025-05-30T18:26:20.943339Z",
-      "type": "death",
-      "name": "Andrey Vyshinsky",
-      "description": "Soviet statesman",
-      "bio": "Andrey Vyshinsky was a Soviet statesman, diplomat, and lawyer who was the chief prosecutor during the Great Purge trials in Moscow in the 1930s.",
-      "birth_year": "1883",
-      "death_year": "1954"
-    },
-    {
-      "created_at": "2025-05-30T18:26:20.783265Z",
-      "updated_at": "2025-05-30T18:26:20.943339Z",
-      "type": "birth",
-      "name": "André Gide",
-      "description": "French writer",
-      "bio": "André Gide was a French writer, humanist, and moralist who received the Nobel Prize for Literature in 1947.",
-      "birth_year": "1869",
-      "death_year": "1951"
     }
   ]
 }
